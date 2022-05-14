@@ -17,12 +17,14 @@ public class Publisher {
     private String name;
 
     @OneToMany
-    private Set<Address> addresses = new HashSet<>();
+    private Set<Address> addresses;
 
     public Publisher() {
+        this.addresses = new HashSet<>();
     }
 
     public Publisher(String name, Set<Address> addresses) {
+        this();
         this.name = name;
         this.addresses = addresses;
     }

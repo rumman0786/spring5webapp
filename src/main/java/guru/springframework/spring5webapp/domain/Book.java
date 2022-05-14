@@ -22,12 +22,14 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private Set<Author> authors = new HashSet<>();
+    private Set<Author> authors;
 
     public Book() {
+        this.authors = new HashSet<>();
     }
 
     public Book(String title, String isbn) {
+        this();
         this.title = title;
         this.isbn = isbn;
     }
