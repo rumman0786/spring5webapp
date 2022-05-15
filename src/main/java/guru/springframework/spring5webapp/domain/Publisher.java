@@ -17,9 +17,15 @@ public class Publisher {
     private String name;
 
     @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books;
+
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
     private Set<Address> addresses;
 
     public Publisher() {
+        this.books = new HashSet<>();
         this.addresses = new HashSet<>();
     }
 
@@ -45,6 +51,14 @@ public class Publisher {
         this.name = name;
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     public Set<Address> getAddresses() {
         return addresses;
     }
@@ -55,7 +69,7 @@ public class Publisher {
 
     @Override
     public String toString() {
-        return "Publisher{" + "id=" + id + ", name='" + name + '\'' + ", addresses=" + addresses + '}';
+        return "Publisher{" + "id=" + id + ", name='" + name + '\'' + ", books=" + books + ", addresses=" + addresses + '}';
     }
 
     @Override

@@ -78,6 +78,11 @@ public class BoostrapData implements CommandLineRunner {
         addresses.add(address2);
 
         Publisher publisher = new Publisher("Ananta Jalil", addresses);
+        publisher.getBooks().add(ddd);
+        publisher.getBooks().add(noEJB);
+
+        ddd.setPublisher(publisher);
+        noEJB.setPublisher(publisher);
 
         publisherRepository.save(publisher);
         System.out.println("Number of Addresses: " + addressRepository.count());
